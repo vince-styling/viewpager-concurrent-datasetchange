@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.View;
+import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,6 +72,8 @@ public class MainActivity extends FragmentActivity {
         }
     }
 
+    private boolean mIsReplacingTTGFragment;
+
     private void replaceToTTGFragment() {
         mAdapter.removeFragment(mNullTTGFragment);
 
@@ -86,6 +89,7 @@ public class MainActivity extends FragmentActivity {
         }
 
         mAdapter.notifyDataSetChanged();
+        mIsReplacingTTGFragment = true;
     }
 
     private String getFragmentTag(int position) {
@@ -127,11 +131,23 @@ public class MainActivity extends FragmentActivity {
         mFragmentVp.setAdapter(mAdapter);
     }
 
-    private static class ViewPagerAdapter extends FragmentPagerAdapter {
+    private class ViewPagerAdapter extends FragmentPagerAdapter {
         List<Fragment> fragments = new ArrayList<>(4);
 
         public ViewPagerAdapter(FragmentManager fm) {
             super(fm);
+        }
+
+        @Override
+        public void setPrimaryItem(ViewGroup container, int position, Object object) {
+            super.setPrimaryItem(container, position, object);
+            if (position == 2 && mIsReplacingTTGFragment) {
+                mIsReplacingTTGFragment = false;
+                // solution : scroll during replacing!!
+                // solution : scroll during replacing!!
+                // solution : scroll during replacing!!
+                mFragmentVp.scrollTo(0, 0);
+            }
         }
 
         public void addFragment(Fragment fragment) {
