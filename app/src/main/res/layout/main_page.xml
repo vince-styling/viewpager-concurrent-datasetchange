@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pageVp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnMain"
+        android:text="Main"
+        android:layout_below="@+id/pageVp"
+        android:textSize="20sp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnNews"
+        android:text="News"
+        android:layout_toRightOf="@id/btnMain"
+        android:layout_below="@+id/pageVp"
+        android:textSize="20sp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnTTG"
+        android:text="TTG"
+        android:layout_toRightOf="@id/btnNews"
+        android:layout_below="@+id/pageVp"
+        android:textSize="20sp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnME"
+        android:text="ME"
+        android:layout_toRightOf="@id/btnTTG"
+        android:layout_below="@+id/pageVp"
+        android:textSize="20sp"/>
+</RelativeLayout>
