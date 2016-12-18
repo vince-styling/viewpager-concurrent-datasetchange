@@ -5,14 +5,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends FragmentActivity {
-    private ViewPager mFragmentVp;
+    private CustomViewPager mFragmentVp;
     private ViewPagerAdapter mAdapter;
 
     @Override
@@ -23,7 +22,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void initView() {
-        mFragmentVp = (ViewPager) findViewById(R.id.pageVp);
+        mFragmentVp = (CustomViewPager) findViewById(R.id.pageVp);
         mAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         findViewById(R.id.btnMain).setOnClickListener(new View.OnClickListener() {
@@ -54,7 +53,7 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        mFragmentVp.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+        mFragmentVp.addOnPageChangeListener(new CustomViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
                 if (position == 2) {
